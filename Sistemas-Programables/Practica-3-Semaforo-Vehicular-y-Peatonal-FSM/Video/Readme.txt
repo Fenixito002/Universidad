@@ -1,3 +1,5 @@
 Enlace al video del funcionamiento.
 
-PENDIENTE: falta grabar el video y pegar aqui el enlace de YouTube.
+YouTube: https://youtube.com/shorts/jQlzccY6zho
+
+  semaforo-fsm.mp4  - Copia local del video (misma grabacion)

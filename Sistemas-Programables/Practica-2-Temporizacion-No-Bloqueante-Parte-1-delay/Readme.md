@@ -46,7 +46,9 @@ resistencia de 220 Ω a GND.
 
 ## Diagrama del circuito
 
-<!-- PENDIENTE: foto del armado en la protoboard. Ver Diagrama/Readme.txt -->
+![Diagrama de conexiones](Diagrama/diagrama-3-leds.png)
+
+Es el mismo circuito de la Parte 2: solo cambia el programa.
 
 ```
 Pin 8  ──┤>├──[220 Ω]──┐
@@ -82,13 +84,23 @@ solución de verdad es no esperar: la Parte 2.
 
 ## Video del funcionamiento
 
-[Readme](Video/Readme.txt)
+[![Ver en YouTube](https://img.youtube.com/vi/sUPkjtxan6g/hqdefault.jpg)](https://www.youtube.com/shorts/sUPkjtxan6g)
 
-<!-- PENDIENTE: enlace de YouTube -->
+**YouTube:** https://www.youtube.com/shorts/sUPkjtxan6g
+
+Copia local: [Video/parpadeo-delay.mp4](Video/parpadeo-delay.mp4) · [Readme](Video/Readme.txt)
 
 ## Evidencias de armado
 
-<!-- PENDIENTE: fotos del circuito armado. Ver Diagrama/Readme.txt -->
+Cuadros tomados del video del funcionamiento. Se ve que los LEDs encienden **uno
+después del otro** (rojo, amarillo, verde), nunca dos a la vez: es la secuencia
+encadenada que produce `delay()`.
+
+| | | |
+|---|---|---|
+| ![LED rojo](Diagrama/foto-1-led-rojo.jpg) | ![LED amarillo](Diagrama/foto-2-led-amarillo.jpg) | ![LED verde](Diagrama/foto-3-led-verde.jpg) |
+
+![Código en el IDE](Diagrama/foto-4-codigo-en-el-ide.jpg)
 
 ## Reporte
 [Readme](Reporte/Readme.txt)

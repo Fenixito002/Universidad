@@ -44,11 +44,11 @@ El pulsador no necesita resistencia: se usa `INPUT_PULLUP` y el botón va del pi
 
 | Elemento | Pin Arduino | Nota |
 |---|---|---|
-| Vehicular VERDE | 8 | 220 Ω a GND |
-| Vehicular AMARILLO | 9 | 220 Ω a GND |
-| Vehicular ROJO | 10 | 220 Ω a GND |
-| Peatonal ROJO | 11 | 220 Ω a GND |
-| Peatonal VERDE | 12 | 220 Ω a GND |
+| Vehicular VERDE | 11 | 220 Ω a GND |
+| Vehicular AMARILLO | 12 | 220 Ω a GND |
+| Vehicular ROJO | 13 | 220 Ω a GND |
+| Peatonal ROJO | 8 | 220 Ω a GND |
+| Peatonal VERDE | 7 | 220 Ω a GND |
 | Pulsador | 2 | Otra pata a GND; `INPUT_PULLUP` (presionado = LOW) |
 
 ### Tiempos elegidos
@@ -63,14 +63,14 @@ El pulsador no necesita resistencia: se usa `INPUT_PULLUP` y el botón va del pi
 
 ## Diagrama del circuito
 
-<!-- PENDIENTE: foto del armado en la protoboard. Ver Diagrama/Readme.txt -->
+![Diagrama de conexiones](Diagrama/diagrama-semaforo-fsm.png)
 
 ```
-Pin 8  ──┤>├ verde    ──[220 Ω]──┐
-Pin 9  ──┤>├ amarillo ──[220 Ω]──┤   semáforo vehicular
-Pin 10 ──┤>├ rojo     ──[220 Ω]──┤
-Pin 11 ──┤>├ rojo     ──[220 Ω]──┤   semáforo peatonal
-Pin 12 ──┤>├ verde    ──[220 Ω]──┤
+Pin 11 ──┤>├ verde    ──[220 Ω]──┐
+Pin 12 ──┤>├ amarillo ──[220 Ω]──┤   semáforo vehicular
+Pin 13 ──┤>├ rojo     ──[220 Ω]──┤
+Pin 8  ──┤>├ rojo     ──[220 Ω]──┤   semáforo peatonal
+Pin 7  ──┤>├ verde    ──[220 Ω]──┤
 Pin 2  ───[ pulsador ]───────────┴── GND
 ```
 
@@ -158,15 +158,19 @@ Semaforo FSM (sin delay)
 
 ## Video del funcionamiento
 
-[Readme](Video/Readme.txt)
+[![Ver en YouTube](https://img.youtube.com/vi/jQlzccY6zho/hqdefault.jpg)](https://youtube.com/shorts/jQlzccY6zho)
 
-<!-- PENDIENTE: enlace de YouTube. Conviene mostrar: un ciclo sin tocar el boton,   -->
-<!-- una pulsacion en verde (se atiende al llegar a rojo) y una pulsacion en rojo    -->
-<!-- (se ignora).                                                                    -->
+**YouTube:** https://youtube.com/shorts/jQlzccY6zho
+
+Copia local: [Video/semaforo-fsm.mp4](Video/semaforo-fsm.mp4) · [Readme](Video/Readme.txt)
 
 ## Evidencias de armado
 
-<!-- PENDIENTE: fotos del circuito armado. Ver Diagrama/Readme.txt -->
+Cuadros tomados del video del funcionamiento:
+
+| | | |
+|---|---|---|
+| ![Circuito](Diagrama/foto-1-circuito.jpg) | ![Ciclo vehicular](Diagrama/foto-2-ciclo-vehicular.jpg) | ![Ambos en rojo](Diagrama/foto-3-ambos-en-rojo.jpg) |
 
 ## Reporte
 [Readme](Reporte/Readme.txt)

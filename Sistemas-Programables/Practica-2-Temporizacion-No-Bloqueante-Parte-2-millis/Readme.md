@@ -48,7 +48,7 @@ Es exactamente la misma conexión de la Parte 1; solo cambia el programa.
 
 ## Diagrama del circuito
 
-<!-- PENDIENTE: foto del armado en la protoboard. Ver Diagrama/Readme.txt -->
+![Diagrama de conexiones](Diagrama/diagrama-millis.png)
 
 ```
 Pin 8  ──┤>├──[220 Ω]──┐
@@ -116,13 +116,20 @@ fallaría es escribir `if (ahora >= ultimoCambio + periodo)`, y por eso no se us
 
 ## Video del funcionamiento
 
-[Readme](Video/Readme.txt)
+[![Ver en YouTube](https://img.youtube.com/vi/pJ0OG_M3bCs/hqdefault.jpg)](https://www.youtube.com/shorts/pJ0OG_M3bCs)
 
-<!-- PENDIENTE: enlace de YouTube -->
+**YouTube:** https://www.youtube.com/shorts/pJ0OG_M3bCs · [Readme](Video/Readme.txt)
 
 ## Evidencias de armado
 
-<!-- PENDIENTE: fotos del circuito armado. Ver Diagrama/Readme.txt -->
+Cuadros tomados del video del funcionamiento. A diferencia de la Parte 1, aquí sí
+se ven **dos LEDs encendidos al mismo tiempo**: cada uno lleva su propio ritmo.
+
+| | | |
+|---|---|---|
+| ![Circuito](Diagrama/foto-1-circuito.jpg) | ![Dos LEDs a la vez](Diagrama/foto-2-dos-leds-a-la-vez.jpg) | ![Parpadeo](Diagrama/foto-3-parpadeo.jpg) |
+
+![Arduino conectado](Diagrama/foto-4-arduino.jpg)
 
 ## Reporte
 [Readme](Reporte/Readme.txt)

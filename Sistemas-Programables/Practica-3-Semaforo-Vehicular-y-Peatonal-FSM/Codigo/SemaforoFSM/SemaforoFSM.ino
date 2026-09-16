@@ -13,11 +13,11 @@
 */
 
 // ---- Pines ----------------------------------------------------------------
-const int PIN_VEH_VERDE    = 8;
-const int PIN_VEH_AMARILLO = 9;
-const int PIN_VEH_ROJO     = 10;
-const int PIN_PEA_ROJO     = 11;
-const int PIN_PEA_VERDE    = 12;
+const int PIN_VEH_VERDE    = 11;
+const int PIN_VEH_AMARILLO = 12;
+const int PIN_VEH_ROJO     = 13;
+const int PIN_PEA_ROJO     = 8;
+const int PIN_PEA_VERDE    = 7;
 const int PIN_BOTON        = 2;   // pulsador a GND, con INPUT_PULLUP (presionado = LOW)
 
 // ---- Duraciones (ms) ------------------------------------------------------

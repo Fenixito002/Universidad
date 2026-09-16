@@ -1,3 +1,5 @@
 Enlace al video del funcionamiento.
 
-PENDIENTE: falta grabar el video y pegar aqui el enlace de YouTube.
+YouTube: https://www.youtube.com/shorts/pJ0OG_M3bCs
+
+(No hay copia local del video; solo esta en YouTube.)

@@ -1,3 +1,5 @@
 Enlace al video del funcionamiento.
 
-PENDIENTE: falta grabar el video y pegar aqui el enlace de YouTube.
+YouTube: https://www.youtube.com/shorts/sUPkjtxan6g
+
+  parpadeo-delay.mp4  - Copia local del video (misma grabacion)
