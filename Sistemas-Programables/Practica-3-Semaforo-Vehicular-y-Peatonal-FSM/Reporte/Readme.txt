@@ -1,6 +1,5 @@
 Aqui se sube el reporte general de la practica.
 
-  Reporte de la practica.pdf  - Datos generales, objetivo, tabla de conexiones,
-                                procedimiento, resultados y observaciones
-
-PENDIENTE: falta el reporte (se genera cuando la practica este armada y probada).
+  Reporte-Semaforo-FSM.pdf  - Datos generales, objetivo, tabla de conexiones y tiempos, procedimiento,
+                             tabla de estados de la FSM, tabla de pruebas con el boton, salida del
+                             Monitor Serie, observaciones, conclusiones y evidencia   [LISTO]

@@ -1,5 +1,4 @@
 Resultados y evidencias de la practica.
 
-  Resultados.pdf  - Resultados obtenidos y observaciones
-
-PENDIENTE: falta el PDF (se genera cuando la practica este armada y probada).
+  Resultados-Temporizacion-delay.pdf  - Resultados obtenidos, tabla de tiempos del loop() con delay() y
+                                       comparacion de encendidos esperados contra reales (sin serial)   [LISTO]

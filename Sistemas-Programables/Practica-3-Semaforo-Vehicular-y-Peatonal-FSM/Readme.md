@@ -173,22 +173,31 @@ Cuadros tomados del video del funcionamiento:
 | ![Circuito](Diagrama/foto-1-circuito.jpg) | ![Ciclo vehicular](Diagrama/foto-2-ciclo-vehicular.jpg) | ![Ambos en rojo](Diagrama/foto-3-ambos-en-rojo.jpg) |
 
 ## Reporte
-[Readme](Reporte/Readme.txt)
+[Reporte de la práctica — Semáforo FSM (PDF)](Reporte/Reporte-Semaforo-FSM.pdf) · [qué contiene la carpeta](Reporte/Readme.txt)
 
-<!-- PENDIENTE: Reporte de la practica.pdf -->
+Incluye:
+- Datos generales, objetivo, tabla de conexiones, tiempos y procedimiento
+- Tabla de estados de la FSM y tabla de pruebas (pulsar en verde, amarillo, rojo, cruce, doble pulsación)
+- Salida del Monitor Serie con el instante de cada transición
+- Observaciones, conclusiones y evidencia del armado
 
 ## Conclusiones
 
-<!-- PENDIENTE: redactar. Puntos que conviene tocar:                                  -->
-<!-- - Que aporta pensar el semaforo como FSM antes de programarlo: cada estado dice   -->
-<!--   que luces van y que lo saca de ahi; el codigo es la tabla de transiciones.       -->
-<!-- - enum class vs enum: que error concreto evita.                                    -->
-<!-- - La solicitud "armada": por que no se cambia de estado en el instante del boton.  -->
-<!-- - millis() permite leer el boton todo el tiempo; con delay() la pulsacion se       -->
-<!--   perderia mientras el programa espera.                                            -->
-<!-- - Que se probo: pulsar en verde, en amarillo, en rojo, y no pulsar.                -->
+Pensar el semáforo como máquina de estados antes de programarlo simplifica todo: cada estado dice qué luces van encendidas y qué lo saca de ahí, y el código termina siendo la tabla de transiciones escrita como un `switch`. Agregar un estado (por ejemplo un parpadeo del peatonal antes de terminar) es agregar un renglón a esa tabla, no reescribir el programa.
+
+`enum class` en lugar de `enum` clásico evita errores concretos: no se puede comparar el estado contra un número suelto ni contra otro enum sin que el compilador lo rechace, y los nombres quedan encapsulados (`Estado::VEH_ROJO`). Un error que con `enum` pasaría en silencio aquí no compila.
+
+La solicitud "armada" es la pieza clave: el botón no cambia de estado en el instante en que se pulsa, solo levanta una bandera que se atiende en el momento seguro (al terminar el amarillo). Así el vehicular nunca pasa de verde a rojo de golpe, y es imposible que los dos semáforos estén en verde al mismo tiempo porque las cinco luces las escribe una sola función a partir del estado.
+
+Todo con `millis()` permite leer el botón en cada vuelta del `loop()`; con `delay()` la pulsación se perdería mientras el programa espera los 6 s del verde. El antirrebote también es no bloqueante, así que el semáforo nunca deja de atender el tiempo.
+
+Se probó pulsar en verde, en amarillo, en rojo y no pulsar. En los dos primeros casos se atiende el cruce al llegar a rojo; en rojo se ignora; sin pulsar, el ciclo sigue solo. El Monitor Serie con el instante de cada transición fue suficiente para comprobar los tiempos sin cronómetro.
 
 ## Resultados
-[Readme](Resultados/Readme.txt)
+[Resultados de la práctica — Semáforo FSM (PDF)](Resultados/Resultados-Semaforo-FSM.pdf) · [qué contiene la carpeta](Resultados/Readme.txt)
 
-<!-- PENDIENTE: Resultados.pdf -->
+Resultados obtenidos en la práctica:
+
+- El ciclo vehicular 6 / 2 / 5 s corre solo y el peatonal se atiende únicamente al llegar a rojo
+- Tabla de pruebas: botón en verde, amarillo, rojo, durante el cruce, doble pulsación y antirrebote
+- Salida del Monitor Serie: los instantes de transición coinciden con las constantes del programa

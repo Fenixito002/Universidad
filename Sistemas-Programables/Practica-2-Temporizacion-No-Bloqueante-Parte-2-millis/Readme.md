@@ -132,22 +132,31 @@ se ven **dos LEDs encendidos al mismo tiempo**: cada uno lleva su propio ritmo.
 ![Arduino conectado](Diagrama/foto-4-arduino.jpg)
 
 ## Reporte
-[Readme](Reporte/Readme.txt)
+[Reporte de la práctica — Temporización con `millis()` (PDF)](Reporte/Reporte-Temporizacion-millis.pdf) · [qué contiene la carpeta](Reporte/Readme.txt)
 
-<!-- PENDIENTE: Reporte de la practica.pdf -->
+Incluye:
+- Datos generales, objetivo, tabla de conexiones y procedimiento
+- Tabla de tiempos de los primeros 3 s y comparación contra la Parte 1
+- Salida del Monitor Serie del reto (mensaje cada 3 s con el estado de los LEDs)
+- Observaciones, conclusiones y evidencia del armado
 
 ## Conclusiones
 
-<!-- PENDIENTE: redactar. Puntos que conviene tocar:                                -->
-<!-- - La diferencia visible con la Parte 1: ahora hay momentos con 2 o 3 LEDs       -->
-<!--   encendidos a la vez y cada uno lleva su ritmo.                                 -->
-<!-- - Cambio de mentalidad: en vez de "esperar X", "revisar si ya toca".             -->
-<!-- - La cuarta tarea entro sin tocar las otras: que demuestra eso.                  -->
-<!-- - Limite del patron: sigue siendo cooperativo; una tarea que tarde mucho         -->
-<!--   (p. ej. un calculo largo) si retrasa a las demas.                              -->
-<!-- - Por que la resta de unsigned long resuelve el desbordamiento de millis().      -->
+La diferencia con la Parte 1 se ve a simple vista: ahora hay instantes con dos y hasta tres LEDs encendidos al mismo tiempo, y cada uno lleva su ritmo. Con el mismo circuito, lo único que cambió fue la forma de esperar.
+
+El cambio es de mentalidad más que de código: en vez de "espera X ms" el programa dice "revisa si ya toca". Cada tarea recuerda cuándo actuó (`ultimoCambio`) y compara `ahora - ultimoCambio >= periodo`; como nadie detiene al procesador, el `loop()` gira miles de veces por segundo y todas las tareas se atienden.
+
+La cuarta tarea del reto (mensaje serial cada 3 s) entró sin tocar una sola línea de los LEDs: solo se agregó otra comparación con su propio periodo. Eso demuestra que la estructura es realmente no bloqueante y que agregar tareas escala, a diferencia del enfoque con `delay()`.
+
+La resta en `unsigned long` resuelve el desbordamiento de `millis()` a los ~49.7 días: cuando el contador da la vuelta, la diferencia también da la vuelta y sigue siendo la diferencia real. Escribir `ahora >= ultimoCambio + periodo` sí fallaría en ese momento.
+
+El patrón tiene un límite: sigue siendo multitarea cooperativa. Si una tarea tarda mucho (un cálculo largo o un `delay()` escondido en una librería) retrasa a todas las demás. Para garantías de tiempo estrictas se necesitan interrupciones o temporizadores por hardware.
 
 ## Resultados
-[Readme](Resultados/Readme.txt)
+[Resultados de la práctica — Temporización con `millis()` (PDF)](Resultados/Resultados-Temporizacion-millis.pdf) · [qué contiene la carpeta](Resultados/Readme.txt)
 
-<!-- PENDIENTE: Resultados.pdf -->
+Resultados obtenidos en la práctica:
+
+- Los tres LEDs parpadean a 500 / 1000 / 1500 ms al mismo tiempo, cada uno con su ritmo
+- Tabla de tiempos de los primeros 3 s y comparación con la Parte 1 (6 / 3 / 2 encendidos en 6 s)
+- Salida del Monitor Serie: un mensaje cada 3000 ms exactos, sin afectar a los LEDs

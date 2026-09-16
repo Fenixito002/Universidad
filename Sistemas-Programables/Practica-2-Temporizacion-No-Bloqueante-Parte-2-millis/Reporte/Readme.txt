@@ -1,6 +1,5 @@
 Aqui se sube el reporte general de la practica.
 
-  Reporte de la practica.pdf  - Datos generales, objetivo, tabla de conexiones,
-                                procedimiento, resultados y observaciones
-
-PENDIENTE: falta el reporte (se genera cuando la practica este armada y probada).
+  Reporte-Temporizacion-millis.pdf  - Datos generales, objetivo, tabla de conexiones, procedimiento,
+                                     tabla de tiempos con millis(), comparacion con la Parte 1, salida
+                                     del Monitor Serie, observaciones, conclusiones y evidencia   [LISTO]

@@ -103,20 +103,26 @@ encadenada que produce `delay()`.
 ![Código en el IDE](Diagrama/foto-4-codigo-en-el-ide.jpg)
 
 ## Reporte
-[Readme](Reporte/Readme.txt)
+[Reporte de la práctica — Temporización con `delay()` (PDF)](Reporte/Reporte-Temporizacion-delay.pdf) · [qué contiene la carpeta](Reporte/Readme.txt)
 
-<!-- PENDIENTE: Reporte de la practica.pdf -->
+Incluye:
+- Datos generales, objetivo, tabla de conexiones y procedimiento
+- Tabla de tiempos de los 6 s del `loop()` y comparación encendidos esperados contra reales
+- Observaciones, conclusiones y evidencia del armado
 
 ## Conclusiones
 
-<!-- PENDIENTE: redactar. Puntos que conviene tocar:                              -->
-<!-- - Que se vio en la protoboard: los LEDs encienden por turnos, uno tras otro,  -->
-<!--   nunca dos al mismo tiempo, y el ciclo completo dura 6 s.                    -->
-<!-- - delay() no es "esperar 500 ms para este LED", es "detener TODO 500 ms".      -->
-<!-- - El programa no puede reaccionar a nada mientras espera (un boton, el serial).-->
-<!-- - Por que esto importa en sistemas embebidos reales (sensores, comunicacion). -->
+`delay()` no significa "espera 500 ms para este LED": significa "detén todo el programa 500 ms". Mientras el procesador está dentro de un `delay()` no revisa ningún otro LED, ni un botón, ni el puerto serie; por eso los tres LEDs quedaron encadenados en una sola secuencia de 6 s y ninguno cumplió su periodo. En la protoboard se vio claro: encienden por turnos, nunca dos a la vez.
+
+Con retardos bloqueantes es imposible que tareas con periodos distintos convivan en un solo `loop()`: el tiempo de cada una se suma al de las demás. Se puede maquillar con un paso base y contadores, pero en cuanto aparece una tarea que no es múltiplo de ese paso, o una entrada que deba atenderse al instante, vuelve a fallar.
+
+En un sistema embebido real (sensores que muestrean, comunicación que llega en cualquier momento, botones del usuario) esta forma de programar es un antipatrón: el sistema se vuelve "sordo" durante cada espera. La solución no es acortar los `delay()` sino no esperar, que es lo que hace la [Parte 2](../Practica-2-Temporizacion-No-Bloqueante-Parte-2-millis) con `millis()`.
 
 ## Resultados
-[Readme](Resultados/Readme.txt)
+[Resultados de la práctica — Temporización con `delay()` (PDF)](Resultados/Resultados-Temporizacion-delay.pdf) · [qué contiene la carpeta](Resultados/Readme.txt)
 
-<!-- PENDIENTE: Resultados.pdf -->
+Resultados obtenidos en la práctica:
+
+- Los LEDs parpadean, pero cada uno enciende una sola vez por ciclo y el ciclo dura 6 s
+- En 6 s se esperaban 6 / 3 / 2 encendidos y se obtuvo 1 / 1 / 1
+- Nunca hay dos LEDs encendidos al mismo tiempo: es el antipatrón visto con los propios ojos
