@@ -129,7 +129,7 @@ descarta la pieza nueva y aumenta el contador `perdidas`, que sale en el reporte
 estado. Así se detecta si el buffer se quedó corto en vez de perder datos en silencio.
 
 ## Código
-[BufferCircularISR.ino](Codigo/BufferCircularISR/BufferCircularISR.ino)
+[BufferCircularISR.ino](Codigo/BufferCircularISR.ino)
 
 ### La ISR: lo mínimo posible
 
